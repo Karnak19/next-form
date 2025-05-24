@@ -1,7 +1,7 @@
+import type { ChangeEvent } from "react";
 import { useFormContext } from "./FormContext";
 import { useFieldContext } from "./FieldContext";
-import { FieldHookReturn } from "../types";
-import { ChangeEvent } from "react";
+import type { FieldHookReturn } from "../types";
 
 export function useField<T = any>(name?: string): FieldHookReturn<T> {
   const form = useFormContext();

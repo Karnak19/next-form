@@ -11,13 +11,20 @@ const authedProcedure = createProcedure(() => {
   };
 });
 
+const combinedProcedure = authedProcedure.pipe((ctx) => {
+  return {
+    ...ctx,
+    admin: true,
+  };
+});
+
 export const exampleAction = createAction()
   .input(exampleSchema)
   .handler(async ({ input }) => {
     return input;
   });
 
-export const exampleAuthedAction = authedProcedure
+export const exampleAuthedAction = combinedProcedure
   .createAction()
   .input(exampleSchema)
   .handler(async ({ input, ctx }) => {

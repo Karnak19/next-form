@@ -7,6 +7,7 @@ export function PageTest() {
     <Form
       initialValues={{
         name: "John Doe",
+        select: "hello",
       }}
       schema={exampleSchema}
       action={exampleAction}

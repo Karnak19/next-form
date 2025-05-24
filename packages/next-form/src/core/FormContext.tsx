@@ -1,6 +1,6 @@
 import { createContext, useContext } from "react";
-import { FieldValues } from "react-hook-form";
-import { FormContextValue } from "../types";
+import type { FieldValues } from "react-hook-form";
+import type { FormContextValue } from "../types";
 
 // Create the form context with null as default value and generic parameter
 export const FormContext = createContext<FormContextValue<any> | null>(null);

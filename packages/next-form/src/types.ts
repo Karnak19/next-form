@@ -1,5 +1,5 @@
 import { ReactElement, ComponentType, RefObject } from "react";
-import { z } from "zod";
+import { z } from "zod/v4";
 import {
   FieldValues,
   UseFormReturn,
@@ -27,6 +27,12 @@ export type ActionDefinition<TInput, TOutput, TContextInput = any> = (props: {
   ctx?: TContextInput;
 }) => Promise<TOutput>;
 
+// Submit render prop types
+export interface SubmitRenderProps {
+  isSubmitting: boolean;
+  submit: () => void;
+}
+
 // Form props type
 export interface FormProps<
   TFieldValues extends FieldValues = FieldValues,
@@ -38,6 +44,7 @@ export interface FormProps<
   children?: ReactElement | ReactElement[];
   action: ActionDefinition<TFieldValues, TOutput>;
   initialValues?: Partial<TFieldValues>;
+  renderSubmit: (props: SubmitRenderProps) => ReactElement;
 }
 
 // Field hook return type
