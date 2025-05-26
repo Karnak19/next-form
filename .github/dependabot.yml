@@ -1,0 +1,65 @@
+version: 2
+updates:
+  # Enable version updates for npm
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+    open-pull-requests-limit: 10
+    reviewers:
+      - "basile-vernouillet"
+    assignees:
+      - "basile-vernouillet"
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+
+  # Monitor the next-form package specifically
+  - package-ecosystem: "npm"
+    directory: "/packages/next-form"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+    open-pull-requests-limit: 5
+    reviewers:
+      - "basile-vernouillet"
+    assignees:
+      - "basile-vernouillet"
+    commit-message:
+      prefix: "chore(next-form)"
+      include: "scope"
+
+  # Monitor the docs package
+  - package-ecosystem: "npm"
+    directory: "/packages/docs"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+    open-pull-requests-limit: 5
+    reviewers:
+      - "Karnak19"
+    assignees:
+      - "Karnak19"
+    commit-message:
+      prefix: "chore(docs)"
+      include: "scope"
+
+  # Monitor GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+    open-pull-requests-limit: 5
+    reviewers:
+      - "Karnak19"
+    assignees:
+      - "Karnak19"
+    commit-message:
+      prefix: "chore(ci)"
+      include: "scope"

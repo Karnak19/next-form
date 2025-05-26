@@ -1,0 +1,88 @@
+name: Release
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  publish:
+    name: Publish to NPM
+    runs-on: ubuntu-latest
+    if: github.event.release.prerelease == false
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Build package
+        run: |
+          cd packages/next-form
+          bun run build
+
+      - name: Setup NPM authentication
+        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+
+      - name: Get version from release tag
+        id: version
+        run: echo "version=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+
+      - name: Update package version
+        run: |
+          cd packages/next-form
+          npm version ${{ steps.version.outputs.version }} --no-git-tag-version
+
+      - name: Publish to NPM
+        run: |
+          cd packages/next-form
+          npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  publish-prerelease:
+    name: Publish Prerelease to NPM
+    runs-on: ubuntu-latest
+    if: github.event.release.prerelease == true
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Build package
+        run: |
+          cd packages/next-form
+          bun run build
+
+      - name: Setup NPM authentication
+        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+
+      - name: Get version from release tag
+        id: version
+        run: echo "version=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+
+      - name: Update package version
+        run: |
+          cd packages/next-form
+          npm version ${{ steps.version.outputs.version }} --no-git-tag-version
+
+      - name: Publish prerelease to NPM
+        run: |
+          cd packages/next-form
+          npm publish --access public --tag beta
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
