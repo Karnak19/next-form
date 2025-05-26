@@ -1,4 +1,4 @@
-import { useField } from "next-form/client";
+import { useField } from "../client";
 
 export function CheckboxField() {
   const { field } = useField();

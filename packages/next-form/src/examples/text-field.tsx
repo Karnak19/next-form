@@ -1,4 +1,4 @@
-import { useField } from "next-form/client";
+import { useField } from "../client";
 
 export default function TextField() {
   const { field, label, error } = useField();
