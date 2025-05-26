@@ -1,4 +1,4 @@
-# Next Form
+# @karnak19/next-form
 
 A lightweight, type-safe library for building full-stack forms in Next.js with automatic field generation, Zod validation, and seamless server action integration.
 
@@ -15,11 +15,11 @@ A lightweight, type-safe library for building full-stack forms in Next.js with a
 ## Installation
 
 ```bash
-npm install next-form zod react-hook-form @hookform/resolvers
+npm install @karnak19/next-form zod react-hook-form @hookform/resolvers
 # or
-yarn add next-form zod react-hook-form @hookform/resolvers
+yarn add @karnak19/next-form zod react-hook-form @hookform/resolvers
 # or
-pnpm add next-form zod react-hook-form @hookform/resolvers
+pnpm add @karnak19/next-form zod react-hook-form @hookform/resolvers
 ```
 
 ## Quick Start

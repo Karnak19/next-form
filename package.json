@@ -5,9 +5,24 @@
   "scripts": {
     "docs:dev": "bun --cwd ./packages/docs run dev",
     "docs:build": "bun --cwd ./packages/docs run build",
-    "docs:preview": "bun --cwd ./packages/docs run preview"
+    "docs:preview": "bun --cwd ./packages/docs run preview",
+    "build": "bun --cwd ./packages/next-form run build",
+    "test": "bun test",
+    "typecheck": "bun --cwd ./packages/next-form run tsc --noEmit",
+    "lint": "bunx biome lint packages/*/src",
+    "lint:fix": "bunx biome lint --write packages/*/src",
+    "format": "bunx biome format --write packages/*/src",
+    "format:check": "bunx biome format packages/*/src",
+    "check": "bunx biome check packages/*/src",
+    "check:fix": "bunx biome check --write packages/*/src",
+    "clean": "rm -rf packages/*/dist packages/*/.next packages/*/node_modules/.cache",
+    "dev": "bun --cwd ./packages/next-form run dev"
   },
   "workspaces": [
     "packages/*"
-  ]
+  ],
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.0",
+    "typescript": "^5.8.3"
+  }
 }

@@ -5,7 +5,7 @@ description: Detailed API documentation for Next Form client and server modules.
 
 ## API Reference
 
-### Client-side (`next-form/client`)
+### Client-side (`@karnak19/next-form/client`)
 
 #### `createForm({ mapping })`
 
@@ -52,7 +52,7 @@ Creates a unique field schema for specialized field types.
 
 **Returns:** Unique field schema
 
-### Server-side (`next-form/server`)
+### Server-side (`@karnak19/next-form/server`)
 
 #### `createAction()`
 

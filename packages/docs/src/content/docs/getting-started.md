@@ -8,20 +8,20 @@ description: Learn how to install and set up Next Form in your Next.js project.
 You can install Next Form and its peer dependencies using your preferred package manager. We recommend using `bun`:
 
 ```bash
-bun add next-form zod react-hook-form @hookform/resolvers
+bun add @karnak19/next-form zod react-hook-form @hookform/resolvers
 ```
 
 Alternatively, you can use npm, yarn, or pnpm:
 
 ```bash
 # npm
-npm install next-form zod react-hook-form @hookform/resolvers
+npm install @karnak19/next-form zod react-hook-form @hookform/resolvers
 
 # yarn
-yarn add next-form zod react-hook-form @hookform/resolvers
+yarn add @karnak19/next-form zod react-hook-form @hookform/resolvers
 
 # pnpm
-pnpm add next-form zod react-hook-form @hookform/resolvers
+pnpm add @karnak19/next-form zod react-hook-form @hookform/resolvers
 ```
 
 ## Quick Start
@@ -30,7 +30,7 @@ pnpm add next-form zod react-hook-form @hookform/resolvers
 
 ```tsx
 // components/TextField.tsx
-import { useField } from "next-form/client";
+import { useField } from "@karnak19/next-form/client";
 
 export default function TextField() {
   const { field, label, error } = useField<string>();
@@ -47,7 +47,7 @@ export default function TextField() {
 
 ```tsx
 // components/CheckboxField.tsx
-import { useField } from "next-form/client";
+import { useField } from "@karnak19/next-form/client";
 
 export function CheckboxField() {
   const { field, label, error } = useField<boolean>();
@@ -69,7 +69,7 @@ export function CheckboxField() {
 ```tsx
 // lib/form-mapping.ts
 import { z } from "zod";
-import { createForm } from "next-form/client";
+import { createForm } from "@karnak19/next-form/client";
 import TextField from "../components/TextField";
 import { CheckboxField } from "../components/CheckboxField";
 
@@ -102,7 +102,7 @@ export type UserFormData = z.infer<typeof userSchema>;
 // actions/user-action.ts
 "use server";
 
-import { createAction } from "next-form/server";
+import { createAction } from "@karnak19/next-form/server";
 import { userSchema } from "../lib/schema";
 
 export const createUserAction = createAction()

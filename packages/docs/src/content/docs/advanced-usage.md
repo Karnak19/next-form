@@ -12,7 +12,7 @@ Create specialized field types that are distinct from their underlying Zod type:
 ```tsx
 // lib/unique-fields.ts
 import { z } from "zod";
-import { createUniqueFieldSchema } from "next-form/client";
+import { createUniqueFieldSchema } from "@karnak19/next-form/client";
 
 // Create a select field that's different from a regular string
 export const zSelect = createUniqueFieldSchema(z.string(), "select");
@@ -21,7 +21,7 @@ export const zTextarea = createUniqueFieldSchema(z.string(), "textarea");
 
 ```tsx
 // components/SelectField.tsx
-import { useField } from "next-form/client";
+import { useField } from "@karnak19/next-form/client";
 
 export function SelectField() {
   const { field, label, error } = useField<string>();
@@ -60,7 +60,7 @@ Create reusable middleware for authentication, logging, etc:
 // lib/procedures.ts
 "use server";
 
-import { createProcedure } from "next-form/server";
+import { createProcedure } from "@karnak19/next-form/server";
 
 // Authentication middleware
 const authProcedure = createProcedure(() => {

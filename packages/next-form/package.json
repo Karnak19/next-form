@@ -1,5 +1,5 @@
 {
-  "name": "next-form",
+  "name": "@karnak19/next-form",
   "version": "0.0.1",
   "exports": {
     "./client": {
