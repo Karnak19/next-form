@@ -25,7 +25,7 @@
     "next": "^15.3.2",
     "react-hook-form": "^7.56.4",
     "typescript": "^5.8.3",
-    "zod": "^3.25.28"
+    "zod": "^4.0.5"
   },
   "peerDependencies": {
     "@hookform/resolvers": "^3.3.4",
