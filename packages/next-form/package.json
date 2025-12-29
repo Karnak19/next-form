@@ -22,7 +22,7 @@
   "devDependencies": {
     "@hookform/resolvers": "^5.0.1",
     "@types/react": "^19.1.5",
-    "next": "^15.3.2",
+    "next": "^16.1.1",
     "react-hook-form": "^7.56.4",
     "typescript": "^5.8.3",
     "zod": "^3.25.28"
